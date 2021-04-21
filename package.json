@@ -1,5 +1,7 @@
 {
   "name": "message_me",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }
