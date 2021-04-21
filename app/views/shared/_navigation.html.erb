@@ -1,28 +1,27 @@
 
 <div class="ui small labeled icon inverted menu">
   <div class="ui container">
-    <a class="item">
-      <i class="wechat icon"></i>
-      Chatroom
-    </a>
-    <a class="item">
-      <i class="envelope icon"></i>
-      Messages
-    </a>
+    <%= link_to root_path, :class=> "item" do %>
+      <i class="wechat icon"></i>Chatroom
+    <% end %>
+    <%= link_to root_path, :class=> "item" do %>
+      <i class="envelope icon"></i>Messages
+    <% end %>
+
     <div class="right menu">
-      <div class="ui dropdown item">
-         <i class="settings icon"></i>
-         Account
+      <div class="ui dropdown">
+        <%= link_to root_path, :class=> "item ui dropdown" do %>
+           <i class="settings icon"></i>Account
+        <% end %>
         <div class="menu">
-          <a class="item">Log in</a>
+          <%= link_to 'Log in', login_path, class:"item" %>
           <a class="item">Log out</a>
           <a class="item">Sign up</a>
         </div>
       </div>
-      <div class="item">
-          <i class="user icon"></i>
-            Sign up
-      </div>
+      <%= link_to login_path, :class=> "item" do %>
+        <i class="user icon"></i>Sign up
+      <% end %>
     </div>
   </div>
 </div>
