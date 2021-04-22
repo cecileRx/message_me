@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :not_already_logged, except: [:destroy]
 
   def new
 
@@ -20,6 +21,15 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "Logged out"
     redirect_to root_path
+  end
+
+  private
+
+  def not_already_logged
+    if logged_in?
+      flash[:alert] = "You are already logged in"
+      redirect_to root_path
+    end
   end
 
 end

@@ -14,13 +14,17 @@
            <i class="settings icon"></i>Account
         <% end %>
         <div class="menu">
-          <%= link_to 'Log in', login_path, class:"item" %>
-          <a class="item">Log out</a>
-          <a class="item">Sign up</a>
+          <% if logged_in? %>
+            <%= link_to 'Log out', logout_path, class:"item", method: :delete %>
+          <% else %>
+           <%= link_to 'Log in', login_path, class:"item" %>
+          <% end %>
         </div>
       </div>
+      <% if !logged_in? %>
       <%= link_to login_path, :class=> "item" do %>
         <i class="user icon"></i>Sign up
+      <% end %>
       <% end %>
     </div>
   </div>
